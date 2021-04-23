@@ -10,10 +10,10 @@ def show_menu()-> int:
     print(MENU)
     return int(input("Your answer: "))
 
-USERS = {}
+users = {}
 
 def list_users():
-    for key, value in USERS.items():
+    for key, value in users.items():
         print(key, ': ', value)
 
 def create_user():
@@ -22,11 +22,11 @@ def create_user():
     weight = input("Введите ваш вес (kg): ")
     gender = input("Введите ваш пол(m/w): ")
 
-    USERS[login] = [height, weight, gender]
+    users[login] = [height, weight, gender]
     
 def read_user():
     user = input("Введите имя зарегистрированного пользователя: ")
-    for key, value in USERS.items():
+    for key, value in users.items():
         if key == user:
             height = value[0]
             weight = value[1]
@@ -61,18 +61,18 @@ def read_user():
 
 def update_user():
     user = input("Введите имя зарегистрированного пользователя: ")
-    for key, value in USERS.items():
+    for key, value in users.items():
         if key == user:
             value[0] = int(input("Ваш новый рост (cm): "))
             value[1] = int(input("Ваш новый вес (kg): "))
             print("Ваши данные успешно изменены!")
-    if user not in USERS.keys():
+    if user not in users.keys():
         print("Пользователя с таким именем не существует!")
 
 def delete_user():
     user = input("Введите имя зарегистрированного пользователя: ")
     try:  
-        del USERS[user]
+        del users[user]
         print("Ваше имя и данные успешно удалены!")
     except:
         print("Пользователя с таким именем не существует!")
